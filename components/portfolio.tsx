@@ -4,6 +4,17 @@ import { ArrowUpRight, AtSign, Code2, Mail, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { projects, type Project } from '@/data/projects'
 
+const siteProfile = {
+  name: 'Butemj Bat-Orshikh',
+  initials: 'BB',
+  title: 'Software Engineer',
+  intro:
+    "I’m a software engineer interested in backend development, API design, databases, and applied AI. I enjoy building practical software, exploring technical problems, and understanding how systems work.",
+  githubUrl: 'https://github.com/buugiiman',
+  resumeUrl: '/resume.pdf',
+  email: 'hello@example.com',
+}
+
 const skills = {
   Backend: ['Java', 'Spring Boot', 'Python', 'REST APIs', 'TypeScript', 'Node.js'],
   Databases: ['PostgreSQL', 'SQL', 'Data modeling', 'Query design'],
@@ -64,7 +75,7 @@ export function Navigation() {
   const [open, setOpen] = useState(false)
   return (
     <header className="site-header">
-      <a href="#top" className="wordmark" aria-label="Back to top"><span>AJ</span><b>Alex Jordan</b></a>
+      <a href="#top" className="wordmark" aria-label="Back to top"><span>{siteProfile.initials}</span><b>{siteProfile.name}</b></a>
       <button className="menu-button" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
         {open ? <X /> : <Menu />}
       </button>
@@ -72,8 +83,8 @@ export function Navigation() {
         <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
         <a href="#about" onClick={() => setOpen(false)}>About</a>
         <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
-        <a href="https://github.com" target="_blank" rel="noreferrer" className="nav-github"><Code2 /> GitHub</a>
-        <a href="#contact" className="resume-link" onClick={() => setOpen(false)}>Resume <ArrowUpRight /></a>
+        <a href={siteProfile.githubUrl} target="_blank" rel="noopener noreferrer" className="nav-github"><Code2 /> GitHub</a>
+        <a href={siteProfile.resumeUrl} className="resume-link" onClick={() => setOpen(false)}>Resume <ArrowUpRight /></a>
       </nav>
     </header>
   )
@@ -109,8 +120,8 @@ export function PortfolioPage() {
           <div className="hero-copy">
             <p className="hero-kicker"><span className="status-dot" /> Open to software engineering opportunities</p>
             <h1 id="hero-title">Building useful<br /><em>systems</em> with care.</h1>
-            <p className="hero-intro">I&apos;m Alex Jordan, a software engineer focused on backend development, thoughtful APIs, databases, and practical AI integration.</p>
-            <div className="hero-actions"><a className="button button-primary" href="#projects">View projects <ArrowUpRight /></a><a className="button button-secondary" href="https://github.com" target="_blank" rel="noreferrer">GitHub <Code2 /></a></div>
+            <p className="hero-intro">{siteProfile.intro}</p>
+            <div className="hero-actions"><a className="button button-primary" href="#projects">View projects <ArrowUpRight /></a><a className="button button-secondary" href={siteProfile.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <Code2 /></a></div>
           </div>
           <div className="hero-aside"><span className="hero-mark">&gt;_</span><p>Software engineer<br />backend + applied AI</p><span className="scroll-cue">Scroll to explore <span>↓</span></span></div>
         </section>
@@ -130,9 +141,9 @@ export function PortfolioPage() {
           <div className="about-layout"><div className="about-copy"><p>I&apos;m interested in the parts of software that make products dependable: clear interfaces, resilient backend systems, useful data models, and the thoughtful application of AI.</p><p>I enjoy learning by building. This portfolio is a living record of experiments and projects across backend engineering, search, and developer tooling.</p></div><div className="terminal-card"><div className="terminal-bar"><span /> <span /> <span /><small>about.txt</small></div><pre>{`$ whoami\nsoftware engineer\n\nfocus:\n  → backend systems\n  → APIs & databases\n  → applied AI\n\nstatus: always learning_`}</pre></div></div>
         </section>
 
-        <section id="contact" className="contact-section" aria-labelledby="contact-title"><div><p className="eyebrow">04 / Start a conversation</p><h2 id="contact-title">Have a problem worth<br /><em>solving?</em></h2></div><a className="contact-email" href="mailto:hello@example.com">hello@example.com <ArrowUpRight /></a><div className="contact-links"><a href="https://github.com" target="_blank" rel="noreferrer"><Code2 /> GitHub</a><a href="https://linkedin.com" target="_blank" rel="noreferrer"><AtSign /> LinkedIn</a><a href="mailto:hello@example.com"><Mail /> Email</a></div></section>
+        <section id="contact" className="contact-section" aria-labelledby="contact-title"><div><p className="eyebrow">04 / Start a conversation</p><h2 id="contact-title">Have a problem worth<br /><em>solving?</em></h2></div><a className="contact-email" href={`mailto:${siteProfile.email}`}>{siteProfile.email} <ArrowUpRight /></a><div className="contact-links"><a href={siteProfile.githubUrl} target="_blank" rel="noopener noreferrer"><Code2 /> GitHub</a><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><AtSign /> LinkedIn</a><a href={`mailto:${siteProfile.email}`}><Mail /> Email</a></div></section>
       </main>
-      <footer><span>© {new Date().getFullYear()} Alex Jordan</span><span>Designed & built with intention</span><a href="#top">Back to top ↑</a></footer>
+      <footer><span>© {new Date().getFullYear()} {siteProfile.name}</span><span>Designed & built with intention</span><a href="#top">Back to top ↑</a></footer>
     </div>
   )
 }
