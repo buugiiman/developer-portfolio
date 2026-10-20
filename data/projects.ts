@@ -13,7 +13,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 'monlok',
-    title: 'Monlok',
+    title: 'MonLok',
     category: 'Product / Search',
     description:
       'A local business discovery application combining structured business data, Google Places integration, and AI-powered semantic search.',
