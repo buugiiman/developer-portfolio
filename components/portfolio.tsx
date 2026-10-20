@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowUpRight, AtSign, Code2, Mail, Menu, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, AtSign, Code2, Mail, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { projects, type Project } from '@/data/projects'
 
@@ -91,8 +91,10 @@ export function Navigation() {
 }
 
 export function ProjectCard({ project }: { project: Project }) {
+  const isMonlok = project.title === 'MonLok'
+
   return (
-    <article className="project-card">
+    <article className={`project-card ${isMonlok ? 'project-card-link' : ''}`} onClick={isMonlok ? () => { window.location.href = '/projects/monlok' } : undefined} onKeyDown={isMonlok ? (event) => { if (event.key === 'Enter' || event.key === ' ') window.location.href = '/projects/monlok' } : undefined} tabIndex={isMonlok ? 0 : undefined} role={isMonlok ? 'link' : undefined}>
       <ProjectVisual project={project} />
       <div className="project-content">
         <div className="project-meta"><span>{project.category ?? 'Featured project'}</span><span>0{projects.indexOf(project) + 1}</span></div>
@@ -106,6 +108,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.liveDemoUrl && <a href={project.liveDemoUrl} target="_blank" rel="noreferrer">Live demo <ArrowUpRight /></a>}
           </div>
         )}
+        {isMonlok && <span className="case-study-cta">Click to see case study <ArrowRight /></span>}
       </div>
     </article>
   )
