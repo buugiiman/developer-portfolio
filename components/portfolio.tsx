@@ -12,7 +12,7 @@ const siteProfile = {
     "I’m a software engineer interested in backend development, API design, databases, and applied AI. I enjoy building practical software, exploring technical problems, and understanding how systems work.",
   githubUrl: 'https://github.com/buugiiman',
   resumeUrl: '/resume.pdf',
-  email: 'hello@example.com',
+  email: 'butemj19@gmail.com',
 }
 
 const skills = {
@@ -144,7 +144,7 @@ export function PortfolioPage() {
           <div className="about-layout"><div className="about-copy"><p>I&apos;m interested in the parts of software that make products dependable: clear interfaces, resilient backend systems, useful data models, and the thoughtful application of AI.</p><p>I enjoy learning by building. This portfolio is a living record of experiments and projects across backend engineering, search, and developer tooling.</p></div><div className="terminal-card"><div className="terminal-bar"><span /> <span /> <span /><small>about.txt</small></div><pre>{`$ whoami\nsoftware engineer\n\nfocus:\n  → backend systems\n  → APIs & databases\n  → applied AI\n\nstatus: always learning_`}</pre></div></div>
         </section>
 
-        <section id="contact" className="contact-section" aria-labelledby="contact-title"><div><p className="eyebrow">04 / Start a conversation</p><h2 id="contact-title">Have a problem worth<br /><em>solving?</em></h2></div><a className="contact-email" href={`mailto:${siteProfile.email}`}>{siteProfile.email} <ArrowUpRight /></a><div className="contact-links"><a href={siteProfile.githubUrl} target="_blank" rel="noopener noreferrer"><Code2 /> GitHub</a><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><AtSign /> LinkedIn</a><a href={`mailto:${siteProfile.email}`}><Mail /> Email</a></div></section>
+        <section id="contact" className="contact-section" aria-labelledby="contact-title"><div><p className="eyebrow">04 / Start a conversation</p><h2 id="contact-title">Have a problem worth<br /><em>solving?</em></h2></div><a className="contact-email" href={`mailto:${siteProfile.email}`}>{siteProfile.email} <ArrowUpRight /></a><div className="contact-links"><a href={siteProfile.githubUrl} target="_blank" rel="noopener noreferrer"><Code2 /> GitHub</a><a href="https://www.linkedin.com/in/butemj" target="_blank" rel="noopener noreferrer"><AtSign /> LinkedIn</a><a href={`mailto:${siteProfile.email}`}><Mail /> Email</a></div></section>
       </main>
       <footer><span>© {new Date().getFullYear()} {siteProfile.name}</span><span>Designed & built with intention</span><a href="#top">Back to top ↑</a></footer>
     </div>
